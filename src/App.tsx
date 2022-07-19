@@ -1,8 +1,25 @@
 import { useState } from 'react';
 
+import { createGlobalStyle } from 'styled-components';
+
 import users from '../data/users';
 
+import reset from '../styles/reset';
+
 import random from '../utils/random';
+
+const GlobalStyles = createGlobalStyle`
+  ${reset}
+
+    * {
+    box-sizing: border-box;
+  }
+
+  body {
+  font-size: '15px';
+  min-height: '100vh';
+  }
+`;
 
 type User = {
     id: number;
@@ -24,6 +41,7 @@ export default function App() {
 
   return (
     <div>
+      <GlobalStyles />
       <h1>분리수거 가챠</h1>
       <ul>
         {users.map((user) => (
